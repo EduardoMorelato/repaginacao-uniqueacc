@@ -1,0 +1,99 @@
+/* =========================================
+   HERO SECTION
+========================================= */
+.hero {
+    min-height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px; 
+    padding-bottom: 60px;
+    background-color: var(--bg-claro); 
+    position: relative; 
+    overflow: hidden; /* Impede que os grafismos vazem da seção */
+}
+
+/* --- O Fundo de Ondas/Grafismos --- */
+.hero-graphics {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Fica no fundo */
+    
+    /* Aqui você pode colocar uma imagem SVG ou um gradient suave no futuro. 
+       Exemplo provisório: */
+    background-image: radial-gradient(circle at top right, rgba(205, 15, 103, 0.05), transparent 40%);
+}
+
+/* --- A Caixa de Texto --- */
+.hero-content {
+    position: relative;
+    z-index: 2; /* Fica acima dos grafismos */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    /* Limita a largura para o texto não ficar muito longo e ruim de ler */
+    max-width: 800px; 
+    padding: 0 20px;
+}
+
+/* --- Tipografia do Hero --- */
+.hero-title {
+    font-family: var(--font-principal);
+    color: var(--primary-color);
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsivo: cresce com a tela */
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.hero-subtitle {
+    font-family: var(--font-secundaria);
+    color: var(--primary-color); /* Usando o azul escuro para contraste no fundo claro */
+    opacity: 0.8; /* Dá um efeito "mutado" mas mantém a cor da marca */
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+/* --- Botão Principal (CTA) --- */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px; /* Espaço entre o texto e a setinha */
+    
+    background-color: var(--secondary-color);
+    color: var(--texto-claro);
+    font-family: var(--font-principal);
+    font-weight: 600;
+    font-size: 1.125rem;
+    
+    padding: 16px 36px;
+    border-radius: 50px; /* Bem arredondado, estilo moderno */
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px); /* Pulinho charmoso ao passar o mouse */
+    box-shadow: 0 10px 20px rgba(205, 15, 103, 0.3); /* Sombra rosa brilhante */
+}
+
+/* Se a setinha for um SVG, garanta que ela tenha um tamanho fixo */
+.btn-primary .btn-icon img {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito extra: a setinha anda pra direita no hover */
+.btn-primary:hover .btn-icon img {
+    transform: translateX(4px);
+}
